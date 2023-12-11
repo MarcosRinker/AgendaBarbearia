@@ -27,5 +27,5 @@ public class Servico {
 
     private String descricao;
     private String tempo;
-    private Double valor;
+    private String valor;
 }

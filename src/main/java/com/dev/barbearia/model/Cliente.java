@@ -13,6 +13,7 @@ import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -26,9 +27,13 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String nome;
+    private String nome_Completo;
     private String celular;
+    private String email;
+    
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_De_Nascimento;
+    
     private String endereco;
     private String cep;
 
