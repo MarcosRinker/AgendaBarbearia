@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -18,13 +18,13 @@
     <div class="container-fluid">
         <div class="row">
             <div id="menu" class="col-md-3   ">
-                <ul class="list-group ">
-                    <li class="list-group-item  border-0"><a href="agenda.html">Início</a></li>
-                    <li class="list-group-item border-0"><a href="agendamento.html">Agendamento</a></li>
-                    <li class="list-group-item border-0"><a href="cliente.html">Cliente</a></li>
-                    <li class="list-group-item border-0"><a href="profissional.html">Profissional</a></li>
-                    <li class="list-group-item border-0"><a href="servico.html">Serviço</a></li>
-                </ul>
+                <ul class="list-group">
+                        <li class="list-group-item  border-0"><a href="agenda.html" th:href="@{/}">Inicio</a></li>
+                        <li class="list-group-item  border-0"><a href="agendamento.html" th:href="@{/agendamento}">Agendamento</a></li>
+                    <li class="list-group-item   border-0"><a href="cliente.html" th:href="@{/cliente}">Cliente</a></li>
+                    <li class="list-group-item   border-0"><a href="profissional.html" th:href="@{/profissional}">Profissional</a></li>
+                    <li class="list-group-item   border-0"><a href="servico.html" th:href="@{/servico}">Serviço</a></li>
+                    </ul>
             </div>
             <div class="col-md-9">
                 <div class="container mt-3">

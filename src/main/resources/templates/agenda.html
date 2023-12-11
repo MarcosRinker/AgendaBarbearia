@@ -1,29 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="agenda.css">
-    <title>Agenda</title>
+        <link rel="stylesheet" href="agendamento.css">
+        <title>Agenda</title>
 </head>
 
 <body>
     <div class="container-fluid bg-light text-center p-3">
-            <img src="imagens/logo.png" class="img-fluid" alt="Logo">
-            
-        </div>
+        <img src="imagens/logo.png" class="img-fluid" alt="Logo">
+    </div>
 
     <div class="container-fluid">
         <div class="row">
             <div id="menu" class="col-md-3">
                 <ul class="list-group">
-                    <li class="list-group-item  border-0"><a href="agendamento.html">Agendamento</a></li>
-                    <li class="list-group-item   border-0"><a href="cliente.html">Cliente</a></li>
-                    <li class="list-group-item   border-0"><a href="profissional.html">Profissional</a></li>
-                    <li class="list-group-item   border-0"><a href="servico.html" >Serviço</a></li>
+                    <li class="list-group-item  border-0"><a href="agendamento.html" th:href="@{/agendamento}">Agendamento</a></li>
+                    <li class="list-group-item   border-0"><a href="cliente.html" th:href="@{/cliente}">Cliente</a></li>
+                    <li class="list-group-item   border-0"><a href="profissional.html" th:href="@{/profissional}">Profissional</a></li>
+                    <li class="list-group-item   border-0"><a href="servico.html" th:href="@{/servico}">Serviço</a></li>
                 </ul>
             </div>
             <div class="col-md-9">
@@ -41,7 +40,111 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Preencha as linhas da tabela conforme necessário -->
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                           
                         </tbody>
                     </table>
                 </div>
@@ -50,15 +153,15 @@
     </div>
 
     <footer class="footer mt-5 bg-light text-center p-3">
-                <div class="float-left">
-                    <img th:src="@{/imagens/logo.png}" class="img-fluid" alt="Logo Rodapé">
-                </div>
-                <div class="d-flex justify-content-center align-items-center">
-                    <a href="#"><img th:src="@{/imagens/instagram.png}" alt="Instagram"></a>
-                    <a href="#"><img th:src="@{/imagens/whatsapp.png}" alt="WhatsApp"></a>
-                    <a href="#"><img th:src="@{/imagens/facebook.png}" alt="Facebook"></a>
-                </div>
-            </footer>
+        <div class="float-left">
+            <img th:src="@{/imagens/logo.png}" class="img-fluid" alt="Logo Rodapé">
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <a href="#"><img th:src="@{/imagens/instagram.png}" alt="Instagram"></a>
+            <a href="#"><img th:src="@{/imagens/whatsapp.png}" alt="WhatsApp"></a>
+            <a href="#"><img th:src="@{/imagens/facebook.png}" alt="Facebook"></a>
+        </div>
+    </footer>
 
 </body>
 

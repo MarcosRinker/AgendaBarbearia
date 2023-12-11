@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <meta charset="UTF-8">
@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
         <link rel="stylesheet" href="agendamento.css">
-        <title>Agenda</title>
+        <title>Agendamento</title>
     </head>
 
     <body>
@@ -20,20 +20,104 @@
             <div class="row">
                 <div id="menu" class="col-md-3">
                     <ul class="list-group">
-                        <li class="list-group-item  border-0"><a href="agenda.html">Início</a></li>
-                        <li class="list-group-item border-0"><a href="agendamento.html">Agendamento</a></li>
-                        <li class="list-group-item border-0"><a href="cliente.html">Cliente</a></li>
-                        <li class="list-group-item border-0"><a href="profissional.html">Profissional</a></li>
-                        <li class="list-group-item border-0"><a href="servico.html">Serviço</a></li>
+                        <li class="list-group-item  border-0"><a href="agenda.html" th:href="@{/}">Inicio</a></li>
+                        <li class="list-group-item  border-0"><a href="agendamento.html" th:href="@{/agendamento}">Agendamento</a></li>
+                    <li class="list-group-item   border-0"><a href="cliente.html" th:href="@{/cliente}">Cliente</a></li>
+                    <li class="list-group-item   border-0"><a href="profissional.html" th:href="@{/profissional}">Profissional</a></li>
+                    <li class="list-group-item   border-0"><a href="servico.html" th:href="@{/servico}">Serviço</a></li>
                     </ul>
                 </div>
                 <div class="col-md-9">
                     <div class="container mt-3">
-                        <h1 class="text-left">Agendamento</h1>
-                        <form action="" method="post" id="formulario" class="needs-validation" novalidate>
-                            <!-- Restante do formulário aqui -->
-                        </form>
-                    </div>
+                    <h1 class="text-left">Agendamento</h1>
+                    <form action="" method="post" id="formulario" class="needs-validation" novalidate>
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label for="inputData" class="form-label">Data*</label>
+                                <input type="date" class="form-control" id="inputData" required >
+                            </div>
+                            <div class="col-md-3">
+                                <label for="inputHoraInicio" class="form-label">Hora de Início*</label>
+                                <input type="time" class="form-control" id="inputHoraInicio" required >
+                            </div>
+                            <div class="col-md-3">
+                                <label for="selectProfissional" class="form-label">Profissional*</label>
+                                <select class="form-select" id="selectProfissional" required>
+                                    <option value="" disabled selected>Selecione um Profissional</option>
+                                    <option value="João Silva">João Silva</option>
+                                    <option value="Maria Oliveira">Mario Oliveira</option>
+                                    <option value="Carlos Souza">Carlos Souza</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="btnAdicionarProfissional" class="form-label"> </label>
+                                <a href="profissional.html" id="btnProfi" class="btn btn-primary form-control">+</a>
+                            </div>
+                        </div>
+
+
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-sm-8 col-md-4">
+                                <div class="mb-3">
+                                    <label for="inputServico" class="form-label font-weight-bold">Serviço*</label>
+                                    <select class="form-select" id="inputServico">
+                                        <option value="" disabled selected>Selecione um Serviço:</option>
+                                        <option value="Corte">Corte</option>
+                                        <option value="Barba">Barba</option>
+                                        <option value="Corte/Barba">Corte/Barba</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-2">
+                                <div class="mb-3">
+                                    <a href="servico.html" id="btnServ" class="btn btn-primary">+</a>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-6">
+                                <div id="obs" class="mb-3">
+                                    <label for="inputObs" class="form-label font-weight-bold">Observação:</label>
+                                    <textarea class="form-control" id="inputObs" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div id="campoCliente" class="row d-flex justify-content-left">
+                            <div class="col-sm-8">
+                                <div class="mb-3">
+                                    <label for="selectCliente" class="form-label">Cliente*</label>
+                                    <select class="form-select" id="selectCliente" required>
+                                        <option value="" disabled selected>Selecione um Cliente</option>
+                                        <option value="Carlos Silva">Carlos Silva</option>
+                                        <option value="Lucas Oliveira">Lucas Oliveira</option>
+                                        <option value="André Santos">André Santos</option>
+                                        <option value="Roberto Costa">Roberto Costa</option>
+                                        <option value="Miguel Almeida">Miguel Almeida</option>  
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-8 col-md-4">
+
+                                <div class="mb-3">
+
+                                    <a href="cliente.html" id="btnCli" class="btn btn-primary">+</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                        <div id="campoAdicionar" class="row d-flex justify-content-between">
+                            <div class="col-sm-8">
+                                <button type="submit" class="btn btn-primary">CADASTRAR</button>
+                            </div>
+                            <div class="col-sm-4 text-right">
+                                <p class="text-muted mt-2">(*) Campos obrigatórios</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
                 </div>
             </div>
 
