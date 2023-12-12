@@ -28,8 +28,7 @@
                 <div class="col-md-9">
                     <div class="container mt-3">
                         <h1 class="text-left">Serviço</h1>
-                        <form th:action="@{/servico-salvar}" th:object="${servico}" method="post" id="formulario" class="needs-validation" novalidate>
-                            <!-- Seção 1: Informações Pessoais -->
+                       <form th:action="@{/servico-salvar}" th:object="${servico}" method="post" id="formulario" class="needs-validation" novalidate onsubmit="return validarFormulario();">
                             <div class="row mb-3">
                                 <div id="descDiv" class="col-md-6">
                                     <label for="inputDescricao" class="form-label">Descrição*</label>
@@ -73,6 +72,32 @@
                 <a href="#"><img th:src="@{/imagens/facebook.png}" alt="Facebook"></a>
             </div>
         </footer>
+        
+        <script>
+    function validarFormulario() {
+       
+        var descricao = document.getElementById("inputDescricao").value;
+        var tempo = document.getElementById("inputTempo").value;
+        var valor = document.getElementById("inputValor").value;
+
+     
+        if (!descricao || !tempo || !valor) {
+    
+            alert("Por favor, preencha todos os campos obrigatórios.");
+            return false;
+        }
+
+      
+        exibirMensagemSucesso();
+
+       
+        return true;
+    }
+
+    function exibirMensagemSucesso() {
+        alert("Cadastro realizado com sucesso.");
+    }
+</script>
     </body>
 
 </html>

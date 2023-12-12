@@ -29,7 +29,7 @@
                     <div class="container mt-3">
                         <h1 class="text-left">Profissional</h1>
                         <form th:action="@{/profissional-salvar}" th:object="${profissional}" method="post" id="formulario"
-                              class="needs-validation" novalidate>
+      class="needs-validation" novalidate onsubmit="return validarFormulario();">
                             <!-- Seção 1: Informações Pessoais -->
                             <div class="row mb-3">
                                 <div id="nomeDiv" class="col-md-6">
@@ -83,6 +83,30 @@
                 <a href="#"><img th:src="@{/imagens/facebook.png}" alt="Facebook"></a>
             </div>
         </footer>
+        
+        <script>
+    function validarFormulario() {
+        var nomeCompleto = document.getElementById("inputNomeCompleto").value;
+        var dataNascimento = document.getElementById("inputDataNascimento").value;
+        var email = document.getElementById("inputEmail").value;
+        var celular = document.getElementById("inputCelular").value;
+
+        if (!nomeCompleto || !dataNascimento || !email || !celular) {
+            alert("Por favor, preencha todos os campos obrigatórios.");
+            return false;
+        }
+
+        
+        exibirMensagemSucesso();
+
+        return true;
+    }
+
+    
+     function exibirMensagemSucesso() {
+         alert("Cadastro realizado com sucesso.");
+     }
+</script>
     </body>
 
 </html>
