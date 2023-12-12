@@ -8,6 +8,7 @@ import com.dev.barbearia.model.Cliente;
 import com.dev.barbearia.model.Profissional;
 import com.dev.barbearia.repository.ClienteRepository;
 import com.dev.barbearia.repository.ProfissionalRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,4 +23,9 @@ public class ProfissionalService {
         profissionalRepository.save(profissional);
         return profissional;
     }
+     
+    public List<Profissional> listarProfissionais() {
+        return profissionalRepository.findAll();
+    }
+     
 }

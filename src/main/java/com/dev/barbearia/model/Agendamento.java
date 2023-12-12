@@ -15,6 +15,7 @@ import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Data
@@ -27,7 +28,9 @@ public class Agendamento {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+       @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data;
+       
     private String hora_Inicio;
     
       @ManyToOne

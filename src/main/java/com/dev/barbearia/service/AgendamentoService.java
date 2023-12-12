@@ -4,27 +4,24 @@
  */
 package com.dev.barbearia.service;
 
+import com.dev.barbearia.model.Agendamento;
 import com.dev.barbearia.model.Cliente;
-import com.dev.barbearia.model.Profissional;
+import com.dev.barbearia.repository.AgendamentoRepository;
 import com.dev.barbearia.repository.ClienteRepository;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ClienteService {
+public class AgendamentoService {
     
     @Autowired
-    ClienteRepository clienteRepository;
+    AgendamentoRepository agendamentoRepository;
     
-      public Cliente cadastrar(Cliente cliente){
-        cliente.setId(null);
-        clienteRepository.save(cliente);
-        return cliente;
-    }
-      
-       public List<Cliente> listarClientes() {
-        return clienteRepository.findAll();
+    
+      public Agendamento cadastrar(Agendamento agendamento){
+        agendamento.setId(null);
+        agendamentoRepository.save(agendamento);
+        return agendamento;
     }
     
     

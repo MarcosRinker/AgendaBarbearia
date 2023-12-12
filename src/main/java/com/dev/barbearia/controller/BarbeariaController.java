@@ -4,12 +4,15 @@
  */
 package com.dev.barbearia.controller;
 
+import com.dev.barbearia.model.Agendamento;
 import com.dev.barbearia.model.Cliente;
 import com.dev.barbearia.model.Profissional;
 import com.dev.barbearia.model.Servico;
+import com.dev.barbearia.service.AgendamentoService;
 import com.dev.barbearia.service.ClienteService;
 import com.dev.barbearia.service.ProfissionalService;
 import com.dev.barbearia.service.ServicoService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,23 +31,49 @@ public class BarbeariaController {
     
        @Autowired
     ServicoService servicoService;
+       
+            @Autowired
+    AgendamentoService agendamentoService;
+    
     
 
     @GetMapping("/")
     public String agenda() {
+   
 
+        
         return "agenda";
     }
 
-    @GetMapping("/agendamento")
-    public String agendamento() {
-
+     @GetMapping("/agendamento")
+    public String agendamentos(Model model) {
+        List<Profissional> profissionais = profissionalService.listarProfissionais();
+        List<Cliente> clientes = clienteService.listarClientes();
+        List<Servico> servicos = servicoService.listarServicos();
+        
+        
+        model.addAttribute("servicos", servicos);
+        model.addAttribute("clientes", clientes);
+        model.addAttribute("profissionais", profissionais);
+       model.addAttribute("agendamento", new Agendamento());
+        
+        System.out.println("Lista de Profissionais: " + profissionais);
         return "agendamento";
     }
+    
+    @PostMapping("/agendamento-salvar")
+    public String salvarAgendamento(@ModelAttribute Agendamento agendamento) {
+
+        agendamentoService.cadastrar(agendamento);
+
+        return "redirect:/";
+    }
+    
+    
 
     @GetMapping("/cliente")
     public String cliente(Model model) {
-        model.addAttribute("cliente", new Cliente()); // Certifique-se de que está adicionando o objeto 'cliente' ao modelo
+        model.addAttribute("cliente", new Cliente()); 
         return "cliente";
     }
 

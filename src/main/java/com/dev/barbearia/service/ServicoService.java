@@ -8,6 +8,7 @@ import com.dev.barbearia.model.Profissional;
 import com.dev.barbearia.model.Servico;
 import com.dev.barbearia.repository.ProfissionalRepository;
 import com.dev.barbearia.repository.ServicoRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,8 @@ public class ServicoService {
         return servico;
     }
     
-    
+     public List<Servico> listarServicos() {
+        return servicoRepository.findAll();
+    }
     
 }
