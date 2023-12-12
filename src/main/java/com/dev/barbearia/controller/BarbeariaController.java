@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -38,8 +39,9 @@ public class BarbeariaController {
     
 
     @GetMapping("/")
-    public String agenda() {
+    public String agenda(Model model) {
    
+        model.addAttribute("agendamentos", agendamentoService.listarAgendamentos());
 
         
         return "agenda";
@@ -112,6 +114,15 @@ model.addAttribute("servico", new Servico());
 
         return "redirect:/";
     }
+    
+    @GetMapping("/agendamento/excluir/{id}")
+public String excluirAgendamento(@PathVariable Integer id) {
+    agendamentoService.excluir(id);
+    return "redirect:/";
+}
+    
+    
+    
     
     
     

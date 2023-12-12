@@ -8,6 +8,7 @@ import com.dev.barbearia.model.Agendamento;
 import com.dev.barbearia.model.Cliente;
 import com.dev.barbearia.repository.AgendamentoRepository;
 import com.dev.barbearia.repository.ClienteRepository;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,12 @@ public class AgendamentoService {
         agendamentoRepository.save(agendamento);
         return agendamento;
     }
+      
+        public List<Agendamento> listarAgendamentos() {
+        return agendamentoRepository.findAll();
+    }
     
-    
+     public void excluir(Integer id) {
+        agendamentoRepository.deleteById(id);
+    }
 }
